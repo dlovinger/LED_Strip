@@ -307,37 +307,17 @@ class NeoPatterns : public Adafruit_NeoPixel
     // Update the Sparkle Pattern
     void SparkleUpdate()
     {
-/*
-        int pos [120] = { };              //make an array of 120 0's
-        int randVar = rand() % 30 + 3;    //define a number from 3-30 (# of pixels on)
-        int i=0;
-        while (i < randVar)
-        {
-          int randPos = rand() % 120;     //Put a 1 in a random spot in the array
-          pos[randPos] = 1;
-          setPixelColor(randPos, 255,0,0);
-          show();
-          delay(10);
-        }
-*/
-/*
-          for (int k=0; k<120; k++)
-          {
-            setPixelColor(k, pos[k]*255,0,0);
-            show();
-          }
-*/                  
 
-      
-      
-        int randVar = rand() % 30 + 3;    //A number of pixels from 3-33 will light up
-        
-        for (int j=0; j< randVar; j++)
-        {
-          int randPos = rand() % 120;     
-          setPixelColor(randPos, Wheel(rand() % 255));
-          show();
-        }
+       int randVar = rand() % 30 + 3;    //A number of pixels from 3-33 will light up
+       for (int j=0; j< randVar; j++)
+       {
+         int randPos = rand() % 120;
+         if (getPixelColor(randPos) == 0x000000)
+         {    
+             setPixelColor(randPos, Wheel(rand() % 255));
+             show();
+         }
+       }
         
     
     
